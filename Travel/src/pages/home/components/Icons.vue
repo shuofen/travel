@@ -1,6 +1,6 @@
 <template>
   <div class='icons'>
-  <swiper ref="mySwiper" :options="swiperOptions">
+   <swiper :options="swiperOptions">
             <swiper-slide v-for='(page, index) of pages' :key='index'>
               <div class='icon'  v-for='icon of page' :key='icon.id'>
                 <div class='icon-img'>
@@ -81,6 +81,11 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
+@import '~styles/varible.scss';
+@import '~styles/mixin.scss';
+ .icons >>> .swiper-pagination-bullet-active{
+      background: rgba(0,175,190,.8);
+  }
   .icons >>> .swiper-container{
     height: 0;
     width: 100%;
@@ -116,7 +121,8 @@ export default {
       right: 0;
       bottom: 0;
       text-align: center;
-      color: #333;
+      color: $darkTxtColor;
+      @include ellipseTxt;
     }
   }
 </style>
